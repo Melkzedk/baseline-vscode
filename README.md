@@ -97,3 +97,24 @@ If you'd like, I can also:
 - Add a `build` script to `package.json` (e.g., `"build": "tsc -p ."`).
 
 Contact the maintainers or open an issue/pr to propose changes.
+
+## About the project
+
+This small extension grew from a simple idea: make it obvious, as you edit, when web-platform features in your code are considered part of a stable "Baseline" for your audience. I was inspired by the frequent need to balance progressive enhancement with broad compatibility — teams often debate whether a new API or CSS feature is safe to ship. I wanted a tiny, local tool that makes those decisions more visible while you code.
+
+What I learned
+- Working end-to-end with the VS Code extension API is approachable: registering diagnostics, hover providers, and commands lets a lightweight tool integrate tightly with the editor.
+- TypeScript + simple JSON-based configuration (the baseline) is a productive pairing for small developer tools.
+- Heuristics (regex matching) are easy to implement but quickly show their limits; accurate language-aware analysis usually needs AST parsing.
+
+How I built it
+- Started with a minimal baseline JSON (`sr/baseline.json`) and a tiny scanner (`sr/featureScanner.ts`) that loads the baseline and searches text for matches using regexes.
+- Connected the scanner to the VS Code extension lifecycle in `sr/extension.ts`: on activation the extension scans open documents, updates diagnostics, registers a hover provider to show notes and browser support, and adds a command to re-scan the active document.
+- Kept dependencies intentionally minimal (TypeScript only) so the project is straightforward to build and iterate on.
+
+Challenges faced
+- Matching accuracy: using regex-based matches produced false positives (matches in comments, or unrelated identifiers). I deferred an AST-based implementation to keep the initial scope small, but that's the natural next step for the project.
+- UX choices: deciding whether to surface unsafe features as warnings (which can feel noisy) or as informational hints required balancing strictness vs. developer annoyance. The current approach uses warnings for features not marked safe and info for safe features.
+- Packaging for others: publishing a VS Code extension requires additional metadata and packaging steps; for now the repo focuses on local development and iteration.
+
+If you'd like, I can expand this narrative into a short CONTRIBUTING guide describing how to add baseline entries, or implement the AST-based matcher as a follow-up.
