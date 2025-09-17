@@ -1,0 +1,49 @@
+{
+  "features": [
+    {
+      "id": "document.pictureInPictureElement",
+      "type": "api",
+      "name": "document.pictureInPictureElement",
+      "safe": false,
+      "note": "Picture-in-Picture element is not considered Baseline-stable in this sample.",
+      "browsers": { "chrome": "120", "firefox": "118", "safari": "17" },
+      "mdn": "https://developer.mozilla.org/en-US/docs/Web/API/Document/pictureInPictureElement"
+    },
+    {
+      "id": "fetch",
+      "type": "api",
+      "name": "fetch",
+      "safe": true,
+      "note": "Widely supported fetch API.",
+      "browsers": { "chrome": "42", "firefox": "39", "safari": "10.1" },
+      "mdn": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API"
+    },
+    {
+      "id": "container-type",
+      "type": "css",
+      "name": "container-type",
+      "safe": false,
+      "note": "Container queries landed recently and may not be Baseline-stable for all audiences.",
+      "browsers": { "chrome": "105", "firefox": "109", "safari": "16.4" },
+      "mdn": "https://developer.mozilla.org/en-US/docs/Web/CSS/container-type"
+    },
+    {
+      "id": "grid-template-columns",
+      "type": "css",
+      "name": "grid-template-columns",
+      "safe": true,
+      "note": "CSS Grid is widely supported.",
+      "browsers": { "chrome": "57", "firefox": "52", "safari": "10.1" },
+      "mdn": "https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns"
+    },
+    {
+      "id": "element.requestFullscreen",
+      "type": "api",
+      "name": "requestFullscreen",
+      "safe": true,
+      "note": "Fullscreen API is widely available.",
+      "browsers": { "chrome": "71", "firefox": "64", "safari": "12" },
+      "mdn": "https://developer.mozilla.org/en-US/docs/Web/API/Element/requestFullscreen"
+    }
+  ]
+}
